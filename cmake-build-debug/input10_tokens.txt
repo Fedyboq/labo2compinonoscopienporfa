@@ -1,0 +1,30 @@
+Scanner
+
+TOKEN(ID, "x")
+TOKEN(PLUS, "+")
+TOKEN(MAX, "max")
+TOKEN(LPAREN, "(")
+TOKEN(ID, "x")
+TOKEN(MINUS, "-")
+TOKEN(ID, "y")
+TOKEN(COMA, ",")
+TOKEN(MAX, "max")
+TOKEN(LPAREN, "(")
+TOKEN(ID, "x")
+TOKEN(COMA, ",")
+TOKEN(ID, "y")
+TOKEN(COMA, ",")
+TOKEN(ID, "z")
+TOKEN(RPAREN, ")")
+TOKEN(COMA, ",")
+TOKEN(SQRT, "sqrt")
+TOKEN(LPAREN, "(")
+TOKEN(ID, "x")
+TOKEN(POW, "**")
+TOKEN(ID, "y")
+TOKEN(RPAREN, ")")
+TOKEN(RPAREN, ")")
+TOKEN(END)
+
+Scanner exitoso
+

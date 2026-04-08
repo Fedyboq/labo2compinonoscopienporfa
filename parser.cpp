@@ -138,15 +138,15 @@ Exp* Parser::parseF() {
         match(Token::LPAREN);
         e = parseCE();
         match(Token::RPAREN);
-        return new SqrtExp(e);
+        return new AbsExp(e);
     }
     else if (match(Token::TRUE))
     {
-        return FalseExp(previous->text);
+        return new TrueExp(previous->text);
     }
-    else if (match(Token::SQRT))
+    else if (match(Token::FALSE))
     {
-        return TrueExp(previous->text);
+        return new FalseExp(previous->text);
     }
     else if (match(Token::MAX))
     {
@@ -157,7 +157,7 @@ Exp* Parser::parseF() {
         match(Token::COMA);
         Exp* r = parseCE();
         match(Token::RPAREN);
-        return new MaxExp(l,m,r);
+        return new TernaryExp(l,m,r);
     }
     else if (match(Token::ID))
     {   

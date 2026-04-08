@@ -38,6 +38,18 @@ public:
 
 };
 
+// Expresión ternaria
+class TernaryExp : public Exp {
+public:
+    Exp* left;
+    Exp* middle;
+    Exp* right;
+    TernaryExp(Exp* l, Exp* m,  Exp* r);
+    ~TernaryExp();
+    void toDot(std::ostream& out, int& id) const override;
+
+};
+
 // Expresión numérica
 class NumberExp : public Exp {
 public:
@@ -65,5 +77,32 @@ public:
     void toDot(std::ostream& out, int& id) const override; 
 }
 ;
+
+// True Expresion
+class TrueExp : public Exp {
+public:
+    string value;
+    TrueExp(string v);
+    ~TrueExp();
+    void toDot(std::ostream& out, int& id) const override;
+};
+
+// Raiz cuadrada
+class FalseExp : public Exp {
+public:
+    string value;
+    FalseExp(string a);
+    ~FalseExp();
+    void toDot(std::ostream& out, int& id) const override;
+};
+
+// Raiz cuadrada
+class AbsExp : public Exp {
+public:
+    Exp* value;
+    AbsExp(Exp* a);
+    ~AbsExp();
+    void toDot(std::ostream& out, int& id) const override;
+};
 
 #endif // AST_H

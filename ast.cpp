@@ -27,12 +27,34 @@ BinaryExp::~BinaryExp() {
     delete right;
 }
 
+// ------------------ BinaryExp ------------------
+TernaryExp::TernaryExp(Exp* l, Exp* m, Exp* r)
+    : left(l), right(r), middle(m) {}
+
+
+TernaryExp::~TernaryExp() {
+    delete left;
+    delete right;
+}
+
+
 
 
 // ------------------ NumberExp ------------------
 NumberExp::NumberExp(int v) : value(v) {}
 
 NumberExp::~NumberExp() {}
+
+TrueExp::TrueExp(string v) : value(v) {}
+TrueExp::~TrueExp() {}
+
+FalseExp::FalseExp(string v) : value(v) {}
+FalseExp::~FalseExp() {}
+
+AbsExp::AbsExp(Exp* v) : value(v) {}
+AbsExp::~AbsExp() {
+
+}
 
 
 // ------------------idExp ------------------
@@ -82,4 +104,46 @@ void SqrtExp::toDot(ostream& out, int& id) const {
 void IdExp::toDot(ostream& out, int& id) const {
     int myId = id++;
     out << "  node" << myId << " [label=\"" << value << "\"];\n";
+}
+
+void TernaryExp::toDot(ostream& out, int& id) const {
+    int myId = id++;
+    out << "  node" << myId << " [label=\"max\"];\n";
+
+    if (left) {
+        int leftId = id;
+        left->toDot(out, id);
+        out << "  node" << myId << " -> node" << leftId << ";\n";
+    }
+    if (right) {
+        int rightId = id;
+        right->toDot(out, id);
+        out << "  node" << myId << " -> node" << rightId << ";\n";
+    }
+    if (middle) {
+        int middleId = id;
+        middle->toDot(out, id);
+        out << "  node" << myId << " -> node" << middleId << ";\n";
+    }
+}
+
+void TrueExp::toDot(ostream& out, int& id) const {
+    int myId = id++;
+    out << "  node" << myId << " [label=\"" << "true" << "\"];\n";
+}
+
+void FalseExp::toDot(ostream& out, int& id) const {
+    int myId = id++;
+    out << "  node" << myId << " [label=\"" << "false" << "\"];\n";
+}
+
+void AbsExp::toDot(ostream& out, int& id) const {
+    int myId = id++;
+    out << "  node" << myId << " [label=\"sqrt\"];\n";
+
+    if (value) {
+        int childId = id;
+        value->toDot(out, id);
+        out << "  node" << myId << " -> node" << childId << ";\n";
+    }
 }

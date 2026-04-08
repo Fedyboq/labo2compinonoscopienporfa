@@ -1,0 +1,7 @@
+# ninja log v6
+60	775	7973741966207249	CMakeFiles/Prueba2.dir/token.cpp.obj	6a666fec6239a71d
+48	856	7973741966086811	CMakeFiles/Prueba2.dir/scanner.cpp.obj	15065cfa7b34882a
+25	905	7973741965854947	CMakeFiles/Prueba2.dir/main.cpp.obj	5b79f29b6da1321
+12	911	7973741965722574	CMakeFiles/Prueba2.dir/ast.cpp.obj	7470a848fd5e2c14
+37	928	7973741965972032	CMakeFiles/Prueba2.dir/parser.cpp.obj	e4f591bc689c6e30
+929	1240	7973741974888784	Prueba2.exe	14d99b505e3e9dc0
